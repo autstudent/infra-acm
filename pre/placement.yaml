@@ -2,7 +2,7 @@
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: infra-des-placement
+  name: infra-pre-placement
   namespace: openshift-gitops
 spec:
   predicates:
