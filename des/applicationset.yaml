@@ -24,14 +24,17 @@ spec:
     spec:
       project: default
       sources:
-        - repositoryType: git
-          repoURL: https://github.com/autstudent/infra-chart
+        - repoURL: https://autstudent.github.io/infra-chart
+          targetRevision: 0.1.0
+          helm:
+            valueFiles:
+              - $values/values-global.yaml
+              - $values/des/values-env.yaml
+              - $values/des/{{name}}/values-cluster.yaml
           chart: infra-chart
-          targetRevision: main
-        - repositoryType: git
-          repoURL: https://github.com/autstudent/infra-values
-          targetRevision: main
-          path: des
+        - repoURL: https://github.com/autstudent/infra-values
+          targetRevision: HEAD
+          ref: values
       destination:
         namespace: default
         server: "{{server}}"
